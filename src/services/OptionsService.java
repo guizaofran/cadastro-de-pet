@@ -2,7 +2,7 @@ package services;
 
 import exceptions.MenuOptionException;
 
-public class OptionsValidation {
+public class OptionsService {
 
     public void optionMenuValidation(int option){
         if(option <= 0 || option>=7){

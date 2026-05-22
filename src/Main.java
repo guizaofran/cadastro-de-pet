@@ -1,16 +1,21 @@
 import exceptions.MenuOptionException;
 import services.FormularioService;
-import services.OptionsValidation;
+import services.OptionsService;
+import services.PetService;
 
-import java.util.InputMismatchException;
+import java.util.List;
 import java.util.Scanner;
+
+import static menus.MenuPrincipal.menu;
+
 
 public class Main {
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
 
         FormularioService formularioService = new FormularioService();
-        OptionsValidation opValidation = new OptionsValidation();
+        OptionsService validacao = new OptionsService();
+        PetService petService = new PetService();
 
         int option = 0;
 
@@ -20,21 +25,22 @@ public class Main {
             try {
 
                 String input = sc.nextLine();
-                opValidation.validateInputType(input);
+                validacao.validateInputType(input);
 
                 option = Integer.parseInt(input);
-                opValidation.optionMenuValidation(option);
+                validacao.optionMenuValidation(option);
 
                 switch (option) {
                     case 1:
-                        formularioService.lerFormulario();
+                       List<String> perguntas = formularioService.lerFormulario();
+                       petService.cadastroPet(perguntas, sc);
                         break;
                     case 6:
                         System.out.println("Saindo...");
                         break;
                 }
             }catch (NumberFormatException e){
-                System.out.println( e.getMessage());
+                System.out.println(e.getMessage());
             } catch (MenuOptionException e) {
                 System.out.println(e.getMessage());
             }
@@ -44,15 +50,6 @@ public class Main {
         sc.close();
     }
 
-    public static void menu() {
-        System.out.println("");
-        System.out.println("-----------MENU PRINCIPAL------------");
-        System.out.println("1-Cadastrar um novo pet");
-        System.out.println("2-Alterar os dados do pet cadastrado");
-        System.out.println("3-Deletar um pet cadastrado");
-        System.out.println("4-Listar todos os pets cadastrados");
-        System.out.println("5-Listar pets por algum critério (idade, nome, raça)");
-        System.out.println("6-Sair");
-    }
+
 
 }
