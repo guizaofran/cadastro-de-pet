@@ -13,7 +13,22 @@ public class Pet {
     private PetTipoEnum petTipoEnum;
     private PetEndereco petAddress;
 
-    public Pet(String nome, PetTipoEnum petTipoEnum, PetSexoEnum petSexoEnum,PetEndereco petAddress, Double idade, Double peso, String raca) {
+    @Override
+    public String toString() {
+        return "Pet{" +
+                "nome='" + nome + '\'' +
+                ", idade=" + idade +
+                ", peso=" + peso +
+                ", raca='" + raca + '\'' +
+                ", petSexoEnum=" + petSexoEnum +
+                ", petTipoEnum=" + petTipoEnum +
+                ", petAddress=" + petAddress +
+                '}';
+    }
+
+
+
+    public Pet(String nome, PetTipoEnum petTipoEnum, PetSexoEnum petSexoEnum, PetEndereco petAddress, Double idade, Double peso, String raca) {
         this.nome = nome;
         this.petTipoEnum = petTipoEnum;
         this.petSexoEnum = petSexoEnum;

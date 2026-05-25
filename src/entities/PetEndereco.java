@@ -3,12 +3,21 @@ package entities;
 public class PetEndereco {
     private String cidade;
     private String rua;
-    private Integer numero;
+    private String numero;
 
-    public PetEndereco(String rua, Integer numero,String cidade) {
+    @Override
+    public String toString() {
+        return "PetEndereco{" +
+                "cidade='" + cidade + '\'' +
+                ", rua='" + rua + '\'' +
+                ", numero='" + numero + '\'' +
+                '}';
+    }
+
+    public PetEndereco(String cidade, String rua, String numero) {
+        this.cidade = cidade;
         this.rua = rua;
         this.numero = numero;
-        this.cidade = cidade;
     }
 
     public PetEndereco(){
@@ -31,11 +40,11 @@ public class PetEndereco {
         this.rua = rua;
     }
 
-    public Integer getNumero() {
+    public String getNumero() {
         return numero;
     }
 
-    public void setNumero(Integer numero) {
+    public void setNumero(String numero) {
         this.numero = numero;
     }
 }

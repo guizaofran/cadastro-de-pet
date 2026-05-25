@@ -6,6 +6,7 @@ import java.util.Scanner;
 
 public class ValidarPergunta {
     ValidationsService validationsService = new ValidationsService();
+    public static final String NAO_INFORMADO = "NÃO INFORMADO";
 
     public String validarNome(String pergunta, Scanner sc) {
         while (true) {
@@ -45,6 +46,38 @@ public class ValidarPergunta {
             }
         }
     }
+    public String validarCidade(String pergunta, Scanner sc) {
+        System.out.println(pergunta);
+        System.out.println("Cidade: ");
+        String cidade = sc.nextLine();
+        if (cidade == null || cidade.isBlank()) {
+            return NAO_INFORMADO;
+        } else {
+            return cidade;
+        }
+    }
+
+    public String validarRua(Scanner sc) {
+        System.out.println("Rua: ");
+        String rua = sc.nextLine();
+        if(rua == null || rua.isBlank()){
+            return NAO_INFORMADO;
+        }else{
+            return rua;
+        }
+
+    }
+
+    public String validarNumero(Scanner sc) {
+        System.out.println("Número: ");
+        String numero = sc.nextLine();
+        if(numero == null || numero.isBlank()){
+            return NAO_INFORMADO;
+        }else{
+            return numero;
+        }
+    }
 }
+
 
 

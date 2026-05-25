@@ -15,6 +15,9 @@ public class PetService {
 
     ValidarPergunta validarPergunta = new ValidarPergunta();
 
+
+
+
     public void cadastroPet(List<String> perguntas, Scanner sc) {
 
         String nome = validarPergunta.validarNome(perguntas.get(0), sc);
@@ -23,13 +26,9 @@ public class PetService {
 
         String sexo = validarPergunta.validarSexo(perguntas.get(2),sc);
 
-        System.out.println(perguntas.get(3));
-        System.out.print("Cidade: ");
-        String cidade = sc.nextLine();
-        System.out.print("Rua: ");
-        String rua = sc.nextLine();
-        System.out.print("Número: ");
-        String numero = sc.nextLine();
+        String cidade = validarPergunta.validarCidade(perguntas.get(3),sc);
+        String rua = validarPergunta.validarRua(sc);
+        String numero = validarPergunta.validarNumero(sc);
 
         System.out.println(perguntas.get(4));
         double idade = Double.parseDouble(sc.nextLine());
@@ -42,11 +41,13 @@ public class PetService {
 
         Pet pet = new Pet(nome,
                 PetTipoEnum.valueOf(tipo.toUpperCase()), PetSexoEnum.valueOf(sexo.toUpperCase()),
-                new PetEndereco(rua, Integer.parseInt(numero), cidade), idade, peso, raca);
+                new PetEndereco(rua, numero, cidade), idade, peso, raca);
 
 
         pets.add(pet);
         System.out.println("Pet cadastrado com sucesso");
+        System.out.println(pet);
+
 
     }
 

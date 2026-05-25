@@ -34,6 +34,7 @@ public class Main {
                     case 1:
                        List<String> perguntas = formularioService.lerFormulario();
                        petService.cadastroPet(perguntas, sc);
+
                         break;
                     case 6:
                         System.out.println("Saindo...");
