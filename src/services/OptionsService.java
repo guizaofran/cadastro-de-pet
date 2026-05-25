@@ -12,7 +12,9 @@ public class OptionsService {
 
     public void validateInputType(String input){
             if (!input.matches("[0-9]+")) {
-                throw new NumberFormatException("Digite apenas números!");
+                throw new MenuOptionException("Digite apenas números!");
             }
     }
+
+
 }

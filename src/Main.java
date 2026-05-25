@@ -39,8 +39,6 @@ public class Main {
                         System.out.println("Saindo...");
                         break;
                 }
-            }catch (NumberFormatException e){
-                System.out.println(e.getMessage());
             } catch (MenuOptionException e) {
                 System.out.println(e.getMessage());
             }
