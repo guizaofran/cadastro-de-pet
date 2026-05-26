@@ -30,22 +30,19 @@ public class PetService {
         String rua = validarPergunta.validarRua(sc);
         String numero = validarPergunta.validarNumero(sc);
 
-        System.out.println(perguntas.get(4));
-        double idade = Double.parseDouble(sc.nextLine());
+        String idade = validarPergunta.validarIdade(perguntas.get(4),sc);
 
-        System.out.println(perguntas.get(5));
-        double peso = Double.parseDouble(sc.nextLine());
+        String peso = validarPergunta.validarPeso(perguntas.get(5), sc);
 
-        System.out.println(perguntas.get(6));
-        String raca = sc.nextLine();
+        String raca = validarPergunta.validarRaca(perguntas.get(6),sc);
 
         Pet pet = new Pet(nome,
                 PetTipoEnum.valueOf(tipo.toUpperCase()), PetSexoEnum.valueOf(sexo.toUpperCase()),
-                new PetEndereco(rua, numero, cidade), idade, peso, raca);
+                new PetEndereco(cidade,rua,numero), idade, peso, raca);
 
 
         pets.add(pet);
-        System.out.println("Pet cadastrado com sucesso");
+        System.out.println("Pet cadastrado com sucesso!");
         System.out.println(pet);
 
 

@@ -30,4 +30,22 @@ public class ValidationsService {
             throw new ValidationException("Sexo inválido. Digite: 'macho' ou 'femea'");
         }
     }
+
+    public void idadeValidation(Double valor){
+       if(valor>20 || valor<=0) {
+           throw new ValidationException("Digite uma idade entre 0.1 anos e 20 anos");
+       }
+    }
+
+    public void pesoValidation(Double valor){
+        if(valor<0.5 || valor>60){
+            throw new ValidationException("Digite um peso entre 0.5kg e 60kg");
+        }
+    }
+
+    public void racaValidation(String raca){
+        if(!raca.matches("^[a-zA-ZÀ-ÿ\\s]+$")){
+            throw new ValidationException("Informe somente letras!");
+        }
+    }
 }

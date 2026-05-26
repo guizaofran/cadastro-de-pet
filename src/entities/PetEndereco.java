@@ -7,11 +7,7 @@ public class PetEndereco {
 
     @Override
     public String toString() {
-        return "PetEndereco{" +
-                "cidade='" + cidade + '\'' +
-                ", rua='" + rua + '\'' +
-                ", numero='" + numero + '\'' +
-                '}';
+        return "\n"+rua + ", "+ numero + ", "+ cidade;
     }
 
     public PetEndereco(String cidade, String rua, String numero) {

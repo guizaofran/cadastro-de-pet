@@ -5,8 +5,8 @@ import entities.entitiesEnums.PetTipoEnum;
 
 public class Pet {
     private String nome;
-    private Double idade;
-    private Double peso;
+    private String idade;
+    private String peso;
     private String raca;
 
     private PetSexoEnum petSexoEnum;
@@ -15,20 +15,17 @@ public class Pet {
 
     @Override
     public String toString() {
-        return "Pet{" +
-                "nome='" + nome + '\'' +
-                ", idade=" + idade +
-                ", peso=" + peso +
-                ", raca='" + raca + '\'' +
-                ", petSexoEnum=" + petSexoEnum +
-                ", petTipoEnum=" + petTipoEnum +
-                ", petAddress=" + petAddress +
-                '}';
+        return "\nPet:" +
+                "\n1 - Nome: " + nome +
+                "\n2 - Tipo: " + petTipoEnum +
+                "\n3 - Sexo: " + petSexoEnum +
+                "\n4 - Endereço: " + petAddress +
+                "\n5 - Idade: " + idade +
+                "\n6 - Peso: " + peso +
+                "\n7 - Raça: " + raca;
     }
 
-
-
-    public Pet(String nome, PetTipoEnum petTipoEnum, PetSexoEnum petSexoEnum, PetEndereco petAddress, Double idade, Double peso, String raca) {
+    public Pet(String nome, PetTipoEnum petTipoEnum, PetSexoEnum petSexoEnum, PetEndereco petAddress, String idade, String peso, String raca) {
         this.nome = nome;
         this.petTipoEnum = petTipoEnum;
         this.petSexoEnum = petSexoEnum;
@@ -50,19 +47,19 @@ public class Pet {
         this.nome = nome;
     }
 
-    public Double getIdade() {
+    public String getIdade() {
         return idade;
     }
 
-    public void setIdade(Double idade) {
+    public void setIdade(String idade) {
         this.idade = idade;
     }
 
-    public Double getPeso() {
+    public String getPeso() {
         return peso;
     }
 
-    public void setPeso(Double peso) {
+    public void setPeso(String peso) {
         this.peso = peso;
     }
 
