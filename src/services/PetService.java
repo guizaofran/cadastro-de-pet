@@ -5,6 +5,7 @@ import entities.PetEndereco;
 import entities.entitiesEnums.PetSexoEnum;
 import entities.entitiesEnums.PetTipoEnum;
 import exceptions.ValidationException;
+import lerEscrever.SalvarPetService;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -13,10 +14,9 @@ import java.util.Scanner;
 public class PetService {
     private List<Pet> pets = new ArrayList<>();
 
+    SalvarPetService salvarPetService = new SalvarPetService();
+
     ValidarPergunta validarPergunta = new ValidarPergunta();
-
-
-
 
     public void cadastroPet(List<String> perguntas, Scanner sc) {
 
@@ -40,9 +40,9 @@ public class PetService {
                 PetTipoEnum.valueOf(tipo.toUpperCase()), PetSexoEnum.valueOf(sexo.toUpperCase()),
                 new PetEndereco(cidade,rua,numero), idade, peso, raca);
 
-
         pets.add(pet);
-        System.out.println("Pet cadastrado com sucesso!");
+        System.out.println("Pet cadastrado com sucesso!\n");
+        salvarPetService.cadastrarArquivoPet(pet);
         System.out.println(pet);
 
 

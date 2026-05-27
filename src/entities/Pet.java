@@ -15,14 +15,13 @@ public class Pet {
 
     @Override
     public String toString() {
-        return "\nPet:" +
-                "\n1 - Nome: " + nome +
-                "\n2 - Tipo: " + petTipoEnum +
-                "\n3 - Sexo: " + petSexoEnum +
-                "\n4 - Endereço: " + petAddress +
-                "\n5 - Idade: " + idade +
-                "\n6 - Peso: " + peso +
-                "\n7 - Raça: " + raca;
+        return "1 - " + nome +
+                "\n2 - " + petTipoEnum +
+                "\n3 - " + petSexoEnum +
+                "\n4 - " + petAddress +
+                "\n5 - " + idade +
+                "\n6 - " + peso +
+                "\n7 - " + raca;
     }
 
     public Pet(String nome, PetTipoEnum petTipoEnum, PetSexoEnum petSexoEnum, PetEndereco petAddress, String idade, String peso, String raca) {

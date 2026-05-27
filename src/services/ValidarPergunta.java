@@ -128,9 +128,13 @@ public class ValidarPergunta {
             System.out.println(pergunta);
             String raca = sc.nextLine();
             try {
-                validationsService.racaValidation(raca);
-                return raca;
-            } catch (ValidationException e) {
+                if(raca.isBlank()){
+                    return NAO_INFORMADO;
+                }else{
+                    validationsService.racaValidation(raca);
+                    return raca;
+                }
+                } catch (ValidationException e) {
                 System.out.println(e.getMessage());
             }
         }
